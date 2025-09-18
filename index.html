@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF To Frames 雪碧图生成器</title>
+    <meta
+      name="description"
+      content="在线将 GIF 动图拆解为逐帧图片，生成雪碧图与 CSS 动画代码，支持热门 GIF 专页。"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1>GifToFrames</h1>
+        <div class="nav-links">
+          <a href="#tool">在线工具</a>
+          <a href="#popular">热门 GIF 雪碧图</a>
+          <a href="#workflows">二次处理场景</a>
+          <a href="popular/rickroll.html">案例演示</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <h2>一键拆分 GIF，生成可下载的雪碧图与帧序列</h2>
+          <p>
+            GifToFrames 基于开源实现，支持将 GIF 动图快速转化为独立帧、雪碧图和 CSS 动画代码。
+            无需上传服务器，浏览器本地处理，保护素材安全。
+          </p>
+          <div class="cta">
+            <a class="button" href="#tool">立即开始转换</a>
+          </div>
+        </div>
+        <div>
+          <img data-popular="hero" alt="GIF 转换演示" />
+        </div>
+      </section>
+
+      <section id="tool" class="tool-section">
+        <h3>上传或拖拽 GIF，立即拆分所有帧</h3>
+        <p>
+          支持浏览器本地解析，拖入任何 GIF 动图即可展开为 PNG 序列、雪碧图和动画 CSS。
+        </p>
+        <div class="dropzone" data-role="dropzone">
+          <strong>拖拽 GIF 到此处</strong>
+          <p>或点击选择文件</p>
+        </div>
+        <input id="gif-input" type="file" accept="image/gif" />
+        <div class="status" data-role="status"></div>
+
+        <section id="results" class="conversion-results" hidden>
+          <div class="result-summary" data-role="summary"></div>
+          <div class="result-actions">
+            <button type="button" data-action="download-tar">下载全部帧（TAR）</button>
+            <button type="button" data-action="download-meta">下载帧数据（JSON）</button>
+          </div>
+
+          <section class="sprite-builder">
+            <h3>生成雪碧图与 CSS 动画</h3>
+            <form data-role="sprite-form">
+              <label>
+                列数
+                <input type="number" name="columns" min="1" value="6" />
+              </label>
+              <label>
+                间距（px）
+                <input type="number" name="spacing" min="0" value="8" />
+              </label>
+              <label>
+                背景颜色
+                <input type="color" name="background" value="#ffffff" />
+              </label>
+              <label>
+                <input type="checkbox" name="transparent" checked /> 使用透明背景
+              </label>
+              <button type="submit">重新生成雪碧图</button>
+            </form>
+            <div class="sprite-controls">
+              <button type="button" data-action="download-sprite">下载雪碧图 PNG</button>
+              <button type="button" data-action="copy-css">复制 CSS 动画</button>
+            </div>
+            <div class="sprite-output" data-role="sprite-output">
+              <canvas width="0" height="0"></canvas>
+              <textarea readonly placeholder="雪碧图 CSS 将自动生成"></textarea>
+            </div>
+          </section>
+
+          <section>
+            <h3>逐帧预览与下载</h3>
+            <div class="frames-grid" data-role="frames-grid"></div>
+          </section>
+        </section>
+      </section>
+
+      <section id="popular" class="tool-section">
+        <h3>热门 GIF 雪碧图内容页</h3>
+        <p>针对流行动图打造独立页面，直接展示拆分后的雪碧图与下载链接。</p>
+        <div class="popular-list">
+          <a class="popular-card" href="popular/rickroll.html">
+            <img data-popular="card-rickroll" alt="Rickroll 雪碧图" />
+            <h4>Rickroll Loop 雪碧图</h4>
+            <p>恶搞经典 Rick Astley，提供帧序列与 CSS 动画下载。</p>
+          </a>
+          <a class="popular-card" href="popular/nyan-cat.html">
+            <img data-popular="card-nyan" alt="Nyan Cat 雪碧图" />
+            <h4>Nyan Cat 彩虹尾巴</h4>
+            <p>彩虹拖尾猫表情，适合像素风项目的雪碧图示例。</p>
+          </a>
+          <a class="popular-card" href="popular/dancing-baby.html">
+            <img data-popular="card-dancing" alt="Dancing Baby 雪碧图" />
+            <h4>Dancing Baby 律动像素</h4>
+            <p>复刻网络先驱动图，为复古网页或 NFT 预览提供素材。</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="workflows" class="tool-section">
+        <h3>二次处理工作流建议</h3>
+        <div class="popular-list">
+          <div class="popular-card">
+            <h4>UI 雪碧图动画</h4>
+            <p>
+              通过下载的雪碧图与 CSS 代码，可以直接在网页上实现 steps 动画。
+              适合按钮悬停、加载动效等界面反馈场景。
+            </p>
+          </div>
+          <div class="popular-card">
+            <h4>社交媒体贴纸</h4>
+            <p>
+              将每一帧导出为 PNG 后，可在剪映、AE 或 Figma 中编辑，再导出视频或贴纸素材。
+            </p>
+          </div>
+          <div class="popular-card">
+            <h4>游戏资源整合</h4>
+            <p>
+              使用 JSON 元数据与 TAR 打包文件，可直接导入到 Unity、Godot 等引擎中进行序列帧动画。
+            </p>
+          </div>
+          <div class="popular-card">
+            <h4>继续加工工具</h4>
+            <p>
+              推荐结合 SVG 贴图生成器、WebP 压缩、背景抠图等工具，完成动图转短视频、动效图标等应用。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        GifToFrames · 基于社区开源实现构建 | 生成的图片均在浏览器本地处理，不会上传至服务器。
+      </p>
+    </footer>
+    <script type="module" src="assets/js/app.js"></script>
+    <script type="module">
+      import { POPULAR_GIF_SOURCES } from './assets/js/popularSources.js';
+
+      const hero = document.querySelector('[data-popular="hero"]');
+      if (hero && POPULAR_GIF_SOURCES.rickroll) {
+        hero.src = POPULAR_GIF_SOURCES.rickroll;
+      }
+
+      const mapping = {
+        'card-rickroll': 'rickroll',
+        'card-nyan': 'nyan-cat',
+        'card-dancing': 'dancing-baby',
+      };
+
+      Object.entries(mapping).forEach(([dataKey, sourceKey]) => {
+        const img = document.querySelector(`[data-popular="${dataKey}"]`);
+        if (img && POPULAR_GIF_SOURCES[sourceKey]) {
+          img.src = POPULAR_GIF_SOURCES[sourceKey];
+        }
+      });
+    </script>
+  </body>
+</html>
