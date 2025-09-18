@@ -191,3 +191,4 @@ with open(DATA_FILE, 'w', encoding='utf-8') as data_file:
     data_file.write('}\n')
 
 print(f'Finished! GIFs saved to {OUTPUT_DIR}/ and data written to {DATA_FILE}')
+

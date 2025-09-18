@@ -58,3 +58,4 @@ The script outputs downloadable GIF files to `generated-gifs/` and writes their 
 - Drop the CSS snippet into a site to create lightweight `steps()` animations for loaders, tooltips, or playful hover states.
 - Import individual PNG frames into tools such as Premiere, After Effects, or Figma to craft stickers, stream overlays, or short-form videos.
 - Pair the outputs with background removal or WebP compression utilities to produce optimized assets for broader motion design pipelines.
+
