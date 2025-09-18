@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyan Cat 彩虹猫雪碧图下载 | GifToFrames</title>
+    <meta
+      name="description"
+      content="彩虹猫 Nyan Cat GIF 拆帧下载，自动生成雪碧图和 CSS steps 动画。"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1><a href="../index.html">GifToFrames</a></h1>
+        <div class="nav-links">
+          <a href="../index.html#tool">返回工具</a>
+          <a href="../index.html#popular">更多热门 GIF</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <h2 data-role="hero-title"></h2>
+          <p data-role="hero-description"></p>
+          <div class="status" data-role="status">正在自动加载并拆分 GIF…</div>
+        </div>
+        <div>
+          <img data-role="original-gif" alt="Nyan Cat GIF" />
+        </div>
+      </section>
+
+      <section id="results" class="conversion-results" hidden>
+        <div class="result-summary" data-role="summary"></div>
+        <div class="result-actions">
+          <button type="button" data-action="download-tar">下载全部帧（TAR）</button>
+          <button type="button" data-action="download-meta">下载帧数据（JSON）</button>
+        </div>
+        <section class="sprite-builder">
+          <h3>雪碧图与动画代码</h3>
+          <form data-role="sprite-form">
+            <label>
+              列数
+              <input type="number" name="columns" min="1" value="6" />
+            </label>
+            <label>
+              间距（px）
+              <input type="number" name="spacing" min="0" value="6" />
+            </label>
+            <label>
+              背景颜色
+              <input type="color" name="background" value="#1f1f1f" />
+            </label>
+            <label>
+              <input type="checkbox" name="transparent" checked /> 使用透明背景
+            </label>
+            <button type="submit">重新生成雪碧图</button>
+          </form>
+          <div class="sprite-controls">
+            <button type="button" data-action="download-sprite">下载雪碧图 PNG</button>
+            <button type="button" data-action="copy-css">复制 CSS 动画</button>
+          </div>
+          <div class="sprite-output" data-role="sprite-output">
+            <canvas width="0" height="0"></canvas>
+            <textarea readonly placeholder="雪碧图 CSS 将自动生成"></textarea>
+          </div>
+        </section>
+        <section>
+          <h3>所有帧预览</h3>
+          <div class="frames-grid" data-role="frames-grid"></div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>GifToFrames Nyan Cat 专页 · 彩虹猫 GIF 拆帧下载</p>
+    </footer>
+    <script>
+      window.POPULAR_GIF = {
+        slug: 'nyan-cat',
+        sourceKey: 'nyan-cat',
+        title: 'Nyan Cat 彩虹猫雪碧图',
+        description: '彩虹猫像素风动图的雪碧图与帧序列，适合复古像素艺术和小游戏效果。',
+      };
+    </script>
+    <script type="module" src="../assets/js/popularPage.js"></script>
+  </body>
+</html>

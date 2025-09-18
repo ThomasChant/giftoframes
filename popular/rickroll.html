@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rickroll GIF 雪碧图拆分下载 | GifToFrames</title>
+    <meta
+      name="description"
+      content="在线查看并下载 Rickroll GIF 的每一帧、雪碧图与 CSS 动画代码，支持 TAR、JSON 导出。"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1><a href="../index.html">GifToFrames</a></h1>
+        <div class="nav-links">
+          <a href="../index.html#tool">返回工具</a>
+          <a href="../index.html#popular">更多热门 GIF</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <h2 data-role="hero-title"></h2>
+          <p data-role="hero-description"></p>
+          <div class="status" data-role="status">正在自动加载并拆分 GIF…</div>
+        </div>
+        <div>
+          <img data-role="original-gif" alt="Rickroll GIF" />
+        </div>
+      </section>
+
+      <section id="results" class="conversion-results" hidden>
+        <div class="result-summary" data-role="summary"></div>
+        <div class="result-actions">
+          <button type="button" data-action="download-tar">下载全部帧（TAR）</button>
+          <button type="button" data-action="download-meta">下载帧数据（JSON）</button>
+        </div>
+        <section class="sprite-builder">
+          <h3>雪碧图与动画代码</h3>
+          <form data-role="sprite-form">
+            <label>
+              列数
+              <input type="number" name="columns" min="1" value="6" />
+            </label>
+            <label>
+              间距（px）
+              <input type="number" name="spacing" min="0" value="8" />
+            </label>
+            <label>
+              背景颜色
+              <input type="color" name="background" value="#000000" />
+            </label>
+            <label>
+              <input type="checkbox" name="transparent" checked /> 使用透明背景
+            </label>
+            <button type="submit">重新生成雪碧图</button>
+          </form>
+          <div class="sprite-controls">
+            <button type="button" data-action="download-sprite">下载雪碧图 PNG</button>
+            <button type="button" data-action="copy-css">复制 CSS 动画</button>
+          </div>
+          <div class="sprite-output" data-role="sprite-output">
+            <canvas width="0" height="0"></canvas>
+            <textarea readonly placeholder="雪碧图 CSS 将自动生成"></textarea>
+          </div>
+        </section>
+        <section>
+          <h3>所有帧预览</h3>
+          <div class="frames-grid" data-role="frames-grid"></div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>GifToFrames Rickroll 专页 · 支持下载全部帧、雪碧图与元数据</p>
+    </footer>
+    <script>
+      window.POPULAR_GIF = {
+        slug: 'rickroll',
+        sourceKey: 'rickroll',
+        title: 'Rickroll 经典舞步雪碧图',
+        description:
+          'Never Gonna Give You Up 的像素化复刻动画，每帧都可下载，适合恶搞与彩蛋页面。',
+      };
+    </script>
+    <script type="module" src="../assets/js/popularPage.js"></script>
+  </body>
+</html>
