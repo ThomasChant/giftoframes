@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyan Cat Sprite Sheet Download | GifToFrames</title>
+    <meta
+      name="description"
+      content="Break down the Nyan Cat GIF into frames, sprite sheets, and CSS animations with downloadable TAR and JSON exports."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h1><a href="../index.html">GifToFrames</a></h1>
+        <div class="nav-links">
+          <a href="../index.html#tool">Back to converter</a>
+          <a href="../index.html#popular">More popular GIFs</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <h2 data-role="hero-title"></h2>
+          <p data-role="hero-description"></p>
+          <div class="status" data-role="status">Loading and converting the GIF automatically…</div>
+        </div>
+        <div>
+          <img data-role="original-gif" alt="Nyan Cat GIF" />
+        </div>
+      </section>
+
+      <section id="results" class="conversion-results" hidden>
+        <div class="result-summary" data-role="summary"></div>
+        <div class="result-actions">
+          <button type="button" data-action="download-tar">Download all frames (TAR)</button>
+          <button type="button" data-action="download-meta">Download frame data (JSON)</button>
+        </div>
+        <section class="sprite-builder">
+          <h3>Sprite sheet & animation code</h3>
+          <form data-role="sprite-form">
+            <label>
+              Columns
+              <input type="number" name="columns" min="1" value="6" />
+            </label>
+            <label>
+              Spacing (px)
+              <input type="number" name="spacing" min="0" value="8" />
+            </label>
+            <label>
+              Background color
+              <input type="color" name="background" value="#000000" />
+            </label>
+            <label>
+              <input type="checkbox" name="transparent" checked /> Use transparent background
+            </label>
+            <button type="submit">Regenerate sprite sheet</button>
+          </form>
+          <div class="sprite-controls">
+            <button type="button" data-action="download-sprite">Download sprite sheet PNG</button>
+            <button type="button" data-action="copy-css">Copy CSS animation</button>
+          </div>
+          <div class="sprite-output" data-role="sprite-output">
+            <canvas width="0" height="0"></canvas>
+            <textarea readonly placeholder="Sprite sheet CSS will appear here automatically"></textarea>
+          </div>
+        </section>
+        <section>
+          <h3>All frame previews</h3>
+          <div class="frames-grid" data-role="frames-grid"></div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>GifToFrames Nyan Cat showcase · Download every frame, sprite sheet, and metadata</p>
+    </footer>
+    <script>
+      window.POPULAR_GIF = {
+        slug: 'nyan-cat',
+        sourceKey: 'nyan-cat',
+        title: 'Nyan Cat rainbow sprite sheet',
+        description:
+          'The iconic rainbow trail cat—grab each frame for pixel art projects, memes, or playful prototypes.',
+      };
+    </script>
+    <script type="module" src="../assets/js/popularPage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+# Generated sample GIFs (not tracked to avoid binary files)
+generated-gifs/
+# Optional local assets mirror
+assets/gifs/
