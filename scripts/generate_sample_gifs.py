@@ -108,7 +108,7 @@ def build_gif(filename, width, height, colors, frames, loop=True):
         f.write(body)
         f.write(trailer)
 
-    print(f'生成 {filename}')
+    print(f'Generated {filename}')
     return output_path
 
 
@@ -190,4 +190,5 @@ with open(DATA_FILE, 'w', encoding='utf-8') as data_file:
     data_file.write('  window.POPULAR_GIF_SOURCES = POPULAR_GIF_SOURCES;\n')
     data_file.write('}\n')
 
-print(f'生成完成，GIF 存储在 {OUTPUT_DIR}/ 并写入 {DATA_FILE}')
+print(f'Finished! GIFs saved to {OUTPUT_DIR}/ and data written to {DATA_FILE}')
+

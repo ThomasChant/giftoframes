@@ -3,18 +3,18 @@ import { createTarArchive } from './tar.js';
 
 function formatMs(ms) {
   if (!Number.isFinite(ms)) {
-    return '未知';
+    return 'Unknown';
   }
   const seconds = ms / 1000;
   if (seconds < 1) {
     return `${ms.toFixed(0)} ms`;
   }
   if (seconds < 60) {
-    return `${seconds.toFixed(2)} 秒`;
+    return `${seconds.toFixed(2)} s`;
   }
   const minutes = Math.floor(seconds / 60);
   const remaining = seconds - minutes * 60;
-  return `${minutes} 分 ${remaining.toFixed(1)} 秒`;
+  return `${minutes} min ${remaining.toFixed(1)} s`;
 }
 
 function downloadBlob(blob, filename) {
@@ -49,9 +49,9 @@ function createFrameCard(frame, baseName) {
 
   const caption = document.createElement('figcaption');
   caption.innerHTML = `
-    <div class="frame-title">帧 ${frame.index}</div>
-    <div class="frame-meta">延迟：${formatMs(frame.delay)}</div>
-    <div class="frame-meta">处理：${frame.disposalMethod}</div>
+    <div class="frame-title">Frame ${frame.index}</div>
+    <div class="frame-meta">Delay: ${formatMs(frame.delay)}</div>
+    <div class="frame-meta">Disposal: ${frame.disposalMethod}</div>
   `;
   figure.appendChild(caption);
 
@@ -59,7 +59,7 @@ function createFrameCard(frame, baseName) {
   actions.className = 'frame-actions';
   const downloadBtn = document.createElement('button');
   downloadBtn.type = 'button';
-  downloadBtn.textContent = '下载PNG';
+  downloadBtn.textContent = 'Download PNG';
   downloadBtn.addEventListener('click', async () => {
     const blob = await frame.toBlob('image/png');
     downloadBlob(blob, `${baseName}-frame-${String(frame.index).padStart(3, '0')}.png`);
@@ -133,14 +133,14 @@ export class ConversionView {
     this.root.removeAttribute('hidden');
 
     if (this.summaryEl) {
-      const loopText = gif.loopCount === Infinity ? '无限循环' : `${gif.loopCount} 次`;
+      const loopText = gif.loopCount === Infinity ? 'Infinite' : `${gif.loopCount} time(s)`;
       this.summaryEl.innerHTML = `
-        <h2>转换结果</h2>
-        <p><strong>原始文件：</strong> ${originalName || '未命名'}</p>
-        <p><strong>尺寸：</strong> ${gif.width} × ${gif.height}</p>
-        <p><strong>帧数：</strong> ${frames.length}</p>
-        <p><strong>总时长：</strong> ${formatMs(totalDuration)}</p>
-        <p><strong>循环方式：</strong> ${loopText}</p>
+        <h2>Conversion results</h2>
+        <p><strong>Source file:</strong> ${originalName || 'Untitled'}</p>
+        <p><strong>Dimensions:</strong> ${gif.width} × ${gif.height}</p>
+        <p><strong>Frame count:</strong> ${frames.length}</p>
+        <p><strong>Total duration:</strong> ${formatMs(totalDuration)}</p>
+        <p><strong>Loop count:</strong> ${loopText}</p>
       `;
     }
 
@@ -229,12 +229,12 @@ export class ConversionView {
     this.spriteCssArea.select();
     try {
       await navigator.clipboard.writeText(this.spriteCssArea.value);
-      this.copyCssBtn.textContent = '已复制';
+      this.copyCssBtn.textContent = 'Copied!';
       setTimeout(() => {
-        this.copyCssBtn.textContent = '复制CSS';
+        this.copyCssBtn.textContent = 'Copy CSS animation';
       }, 2000);
     } catch (error) {
-      console.warn('无法复制到剪贴板', error);
+      console.warn('Unable to copy to clipboard', error);
     }
   }
 }

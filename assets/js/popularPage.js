@@ -17,7 +17,7 @@ function resolveSource(config) {
 
 async function loadGifSource(src) {
   if (!src) {
-    throw new Error('缺少 GIF 数据源');
+    throw new Error('Missing GIF data source');
   }
   if (src.startsWith('data:')) {
     const commaIndex = src.indexOf(',');
@@ -32,7 +32,7 @@ async function loadGifSource(src) {
 
   const response = await fetch(src);
   if (!response.ok) {
-    throw new Error(`无法加载 GIF：${response.status}`);
+    throw new Error(`Failed to load GIF: ${response.status}`);
   }
   return response.arrayBuffer();
 }
@@ -74,7 +74,7 @@ async function bootstrap() {
   } catch (error) {
     const message = document.querySelector('[data-role="status"]');
     if (message) {
-      message.textContent = `自动转换失败：${error.message}`;
+      message.textContent = `Automatic conversion failed: ${error.message}`;
       message.dataset.type = 'error';
     }
   }

@@ -19,7 +19,7 @@ function resetStatus() {
   if (!messageEl) {
     return;
   }
-  messageEl.textContent = '拖拽或选择 GIF 文件开始转换';
+  messageEl.textContent = 'Drag or choose a GIF file to start converting';
   delete messageEl.dataset.type;
 }
 
@@ -28,11 +28,11 @@ async function handleFile(file) {
     return;
   }
   if (!file.type || file.type !== 'image/gif') {
-    setStatus('请选择 GIF 动图文件', 'error');
+    setStatus('Please choose a GIF animation file', 'error');
     return;
   }
   try {
-    setStatus('正在解析 GIF，请稍候…', 'progress');
+    setStatus('Parsing GIF, please wait…', 'progress');
     const buffer = await file.arrayBuffer();
     const result = convertArrayBuffer(buffer);
     conversionView.setContext({
@@ -42,10 +42,10 @@ async function handleFile(file) {
       baseName: file.name.replace(/\.gif$/i, ''),
       originalName: file.name,
     });
-    setStatus('转换完成，可以查看和下载所有帧', 'success');
+    setStatus('Conversion complete—preview and download every frame', 'success');
   } catch (error) {
     console.error(error);
-    setStatus(`转换失败：${error.message}`, 'error');
+    setStatus(`Conversion failed: ${error.message}`, 'error');
   }
 }
 

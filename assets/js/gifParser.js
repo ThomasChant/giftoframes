@@ -198,7 +198,7 @@ export function decodeGIF(arrayBuffer) {
   );
 
   if (!GIF_HEADER.includes(headerChars)) {
-    throw new Error('不支持的 GIF 文件头');
+    throw new Error('Unsupported GIF header');
   }
 
   const width = stream.readUint16();
@@ -276,7 +276,7 @@ export function decodeGIF(arrayBuffer) {
         const imageData = readSubBlocks(stream);
         const colorTable = localColorTable || globalColorTable;
         if (!colorTable) {
-          throw new Error('GIF 缺少颜色表');
+          throw new Error('GIF is missing a color table');
         }
         const pixelCount = frameWidth * frameHeight;
         const decodedIndices = lzwDecode(lzwMinCodeSize, imageData, pixelCount);
@@ -303,7 +303,7 @@ export function decodeGIF(arrayBuffer) {
         finished = true;
         break;
       default:
-        throw new Error('遇到未知的 GIF 块: 0x' + blockId.toString(16));
+        throw new Error('Encountered unknown GIF block: 0x' + blockId.toString(16));
     }
   }
 
